@@ -1,0 +1,205 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav main";
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 8.5rem 1fr;    
+    height: 100vh;
+}
+
+.cabecalho {
+    grid-area: header;
+    background-color: #1e3c72;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; 
+
+}
+
+.cabecalho h1 {
+    font-size: 3rem; 
+}
+
+.cabecalho .sair {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 1rem; 
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 2rem;
+    border: 1px solid white;
+}
+
+.cabecalho .sair:hover {
+    background-color: #254a8f;
+    transform: translateY(-0.2rem); 
+}
+
+main {
+    grid-area: main;
+    padding: 2rem;
+    background-color: #f5f6fa;
+}
+
+main h2 {
+    margin-bottom: 2rem;
+    color: #1e3c72;
+    font-size: 3.5rem;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    font-size: 8rem;
+}
+
+.card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.8rem; 
+    flex: 1;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: #1e3c72;
+}
+
+.card p {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.card button {
+    padding: 1rem 1.5rem;
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background-color: #3a5fa9;
+}
+
+.sidebar {
+    grid-area: nav;
+    background: linear-gradient(135deg, #1e3c72, #6c7a91);
+    padding-top: 2rem;
+    font-size: 7rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 0.3rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.sidebar li a {
+    display: block; /* ocupa todo o li */
+    padding: 1.2rem 2rem;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 0.5rem;
+}
+
+.sidebar li a:hover {
+    background-color: #1e3c72;
+    transform: translateX(0.3rem);
+}
+
+.menu-relatorios .submenu {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: linear-gradient(135deg, #1e3c72, #6c7a91);
+    text-align: center;
+}
+
+.menu-relatorios .submenu li {
+    margin: 0.2rem 0;
+}
+
+.menu-relatorios .submenu li a {
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    display: block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-relatorios .submenu li a:hover {
+    background-color: #25498b;
+    transform: translateX(0.2rem);
+}
+
+.menu-relatorios > span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6rem;
+    transition: background-color 0.3s;
+    border-radius: 0.5rem;
+    margin: 0.3rem 1rem;
+}
+
+
+.menu-relatorios > span:hover {
+    background-color: #1e3c72;
+}
+
+/* Submenu ativo */
+.menu-relatorios.active .submenu {
+    max-height: 500px;
+}
+
+/* Seta rotacionando */
+.menu-relatorios > span::after {
+    content: "▼";
+    transition: transform 0.3s;
+}
+
+.menu-relatorios.active > span::after {
+    transform: rotate(180deg);
+}
