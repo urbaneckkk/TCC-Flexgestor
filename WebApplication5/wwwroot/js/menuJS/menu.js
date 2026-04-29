@@ -53,15 +53,15 @@ const menuHTML = `
 `;
 
 document.getElementById("menu").innerHTML = menuHTML;
-//fetch('/Permissao/MinhasPermissoes')
-//    .then(r => r.json())
-//    .then(data => {
-//        if (data.admin) {
-//            document.getElementById('menu-permissoes')?.style
-//                .setProperty('display', 'block');
-//        }
-//    })
-//    .catch(() => { });
+fetch('/Permissao/MinhasPermissoes')
+    .then(r => r.json())
+    .then(data => {
+        if (data.admin) {
+            document.getElementById('menu-permissoes')?.style
+                .setProperty('display', 'block');
+        }
+    })
+    .catch(() => { });
 
 
 // ── MENU EXPANSÍVEL ──
