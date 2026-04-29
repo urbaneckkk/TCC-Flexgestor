@@ -2,7 +2,7 @@
 const rotaAtual = document.body.dataset.rota || "";
 function ativo(rota) {
     return rotaAtual === rota ? "active" : "";
-} 
+}
 const menuHTML = `
 <header class="cabecalho">
     <h1>FlexGestor</h1>
@@ -45,7 +45,7 @@ const menuHTML = `
         <!-- PERMISSÕES — só aparece para admin -->
         <li id="menu-permissoes" style="display:none">
             <a href="/Permissao" class="${ativo('Permissao')}">
-                <i class="bi bi-shield-lock-fill"></i> Permissões
+            Permissões
             </a>
         </li>
     </ul>
