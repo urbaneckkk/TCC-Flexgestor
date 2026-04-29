@@ -2,7 +2,7 @@
 const rotaAtual = document.body.dataset.rota || "";
 function ativo(rota) {
     return rotaAtual === rota ? "active" : "";
-}
+} 
 const menuHTML = `
 <header class="cabecalho">
     <h1>FlexGestor</h1>
