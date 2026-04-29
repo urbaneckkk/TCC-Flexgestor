@@ -17,6 +17,7 @@ const menuHTML = `
         <li><a href="/Caixa"     class="${ativo('Caixa')}">Caixa</a></li>
         <li><a href="/Estoque"   class="${ativo('Estoque')}">Estoque</a></li>
         <li><a href="/Auditoria" class="${ativo('Auditoria')}">Auditoria</a></li>
+
         <!-- CADASTROS -->
         <li class="menu-expansivel ${rotaAtual === 'Fornecedor' || rotaAtual === 'CategoriaProduto' ? 'active' : ''}">
             <span>
@@ -28,6 +29,7 @@ const menuHTML = `
                 <li><a href="/CategoriaProduto" class="${ativo('CategoriaProduto')}">Categoria Produto</a></li>
             </ul>
         </li>
+
         <!-- ANÁLISE GERENCIAL -->
         <li class="menu-expansivel ${rotaAtual === 'ML' ? 'active' : ''}">
             <span>
@@ -39,10 +41,29 @@ const menuHTML = `
                 <li><a href="/ML/EDA" class="">Análise EDA</a></li>
             </ul>
         </li>
+
+        <!-- PERMISSÕES — só aparece para admin -->
+        <li id="menu-permissoes" style="display:none">
+            <a href="/Permissao" class="${ativo('Permissao')}">
+                <i class="bi bi-shield-lock-fill"></i> Permissões
+            </a>
+        </li>
     </ul>
 </nav>
 `;
+
 document.getElementById("menu").innerHTML = menuHTML;
+//fetch('/Permissao/MinhasPermissoes')
+//    .then(r => r.json())
+//    .then(data => {
+//        if (data.admin) {
+//            document.getElementById('menu-permissoes')?.style
+//                .setProperty('display', 'block');
+//        }
+//    })
+//    .catch(() => { });
+
+
 // ── MENU EXPANSÍVEL ──
 const menus = document.querySelectorAll('.menu-expansivel');
 menus.forEach(menu => {

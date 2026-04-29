@@ -50,6 +50,9 @@ builder.Services.AddScoped<FornecedorService>();
 builder.Services.AddScoped<HomeRepository>();
 builder.Services.AddScoped<HomeService>();
 
+builder.Services.AddScoped<PermissaoRepository>();
+builder.Services.AddScoped<PermissaoService>();
+
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
