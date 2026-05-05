@@ -12,14 +12,14 @@ namespace WebApplication5.Repositories
         public HomeRepository(IConfiguration config)
             => _connectionString = config.GetConnectionString("Default")!;
 
-        public HomeKpiDto BuscarKPIs(int idEmpresa)
+        public HomeKpiDto BuscarKPIs(int idEmpresa, DateTime dataInicio, DateTime dataFim)
         {
             using var conn = new MySqlConnection(_connectionString);
             conn.Open();
 
             using var multi = conn.QueryMultiple(
                 "sp_HomeKPIs",
-                new { p_idEmpresa = idEmpresa },
+                new { p_idEmpresa = idEmpresa, p_dataInicio = dataInicio, p_dataFim = dataFim },
                 commandType: CommandType.StoredProcedure);
 
             // Result set 1: pedidos do mês

@@ -9,9 +9,9 @@ namespace WebApplication5.Services
 
         public HomeService(HomeRepository repo) => _repo = repo;
 
-        public HomeKpiDto BuscarDashboard(int idEmpresa)
+        public HomeKpiDto BuscarDashboard(int idEmpresa, DateTime dataInicio, DateTime dataFim)
         {
-            var kpi = _repo.BuscarKPIs(idEmpresa);
+            var kpi = _repo.BuscarKPIs(idEmpresa, dataInicio, dataFim);
             kpi.TopProdutos = _repo.BuscarTopProdutos(idEmpresa);
             kpi.FaturamentoMensal = _repo.BuscarFaturamentoMensal(idEmpresa);
             return kpi;
